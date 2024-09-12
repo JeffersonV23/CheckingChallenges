@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Checking challenges</string>
+    <string name="select_date">Select Date</string>
+    <string name="scheduler_can_transform_your_productivity">Scheduler can Transform your Productivity</string>
+    <string name="registerClient">Register Client</string>
+    <string name="etNameClient">Full Name</string>
+    <string name="register">Register me</string>
+<string name="emailClient">Email Client</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">Confirm Password</string>
+    <string name="btnRegisterClient">Register me</string>
+    <string name="fullName">Full Name</string>
+    <string name="loginUser">Login User</string>
+    <string name="btnLogin">Login</string>
+    <string name="notUser">Not User</string>
+    <string name="challenge">Challenges Days</string>
+    <string name="btn_start">Start</string>
+    <string name="Schedule">Program your Schedule</string>
+    <string name="PushUp">PushUp</string>
+    <string name="HowMany">How Many</string>
+    <string name="food">Food</string>
+    <string name="noJerk">No Jerk</string>
+</resources>
