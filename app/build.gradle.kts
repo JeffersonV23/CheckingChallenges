@@ -8,6 +8,10 @@ android {
     namespace = "com.example.checkingchallenges"
     compileSdk = 34
 
+    buildFeatures{
+        viewBinding= true
+    }
+
     defaultConfig {
         applicationId = "com.example.checkingchallenges"
         minSdk = 24
@@ -74,9 +78,9 @@ dependencies {
 
 
     val roomVersion = "2.6.1"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

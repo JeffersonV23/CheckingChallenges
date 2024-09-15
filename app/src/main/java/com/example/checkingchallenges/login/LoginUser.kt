@@ -1,4 +1,5 @@
-package com.example.checkingchallenges.Login
+package com.example.checkingchallenges.login
+
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,15 +9,18 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.checkingchallenges.Login.Register.Register
-import com.example.checkingchallenges.Login.WelcomeActivity.WelcomeActivity
 import com.example.checkingchallenges.R
+import com.example.checkingchallenges.data.database.AppDatabase
+import com.example.checkingchallenges.login.register.Register
+import com.example.checkingchallenges.login.welcomeActivity.DateActivity
 import com.example.checkingchallenges.repository.RepositoryUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class LoginUser : AppCompatActivity() {
+
 
     private lateinit var repositoryUser: RepositoryUser
 
@@ -24,8 +28,8 @@ class LoginUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_user)
 
-
-        repositoryUser = RepositoryUser(applicationContext)
+        val usersDao = AppDatabase.getDatabase(this).userDao()
+        repositoryUser = RepositoryUser(usersDao)
 
         val emailClient = findViewById<EditText>(R.id.emailClient)
         val password = findViewById<EditText>(R.id.password)
@@ -37,14 +41,13 @@ class LoginUser : AppCompatActivity() {
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
                 if (isValidEmail(email) && isValidPassword(pass)) {
-
                     validateUserCredentials(email, pass)
                 } else {
-                    Toast.makeText(this, "Invalid email or password format", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Invalid Format", Toast.LENGTH_SHORT).show()
                 }
             } else {
-                emailClient.error = "Email cannot be empty"
-                password.error = "Password cannot be empty"
+                emailClient.error = "Email can not be empty"
+                password.error = "Password can not be empty"
             }
         }
 
@@ -56,21 +59,15 @@ class LoginUser : AppCompatActivity() {
     }
 
     private fun validateUserCredentials(email: String, password: String) {
-
         CoroutineScope(Dispatchers.IO).launch {
-            repositoryUser.getUsers { users ->
-                val user = users.find { it.email == email }
-                if (user != null && user.password == password) {
-
-                    runOnUiThread {
-                        val intent = Intent(this@LoginUser, WelcomeActivity::class.java)
-                        startActivity(intent)
-                    }
+            val user = repositoryUser.getUsers(email, password)
+            withContext(Dispatchers.Main) {
+                if (user != null) {
+                    val intent = Intent(this@LoginUser, DateActivity::class.java)
+                    startActivity(intent)
+                    finish()
                 } else {
-
-                    runOnUiThread {
-                        Toast.makeText(this@LoginUser, "Invalid email or password", Toast.LENGTH_SHORT).show()
-                    }
+                    Toast.makeText(this@LoginUser, "Email and Password are Incorrect", Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -81,22 +78,6 @@ class LoginUser : AppCompatActivity() {
     }
 
     private fun isValidPassword(password: String): Boolean {
-
-        return password.length >= 6
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Toast.makeText(this, "This is onResume", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Toast.makeText(this, "This is onPause", Toast.LENGTH_SHORT).show()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Toast.makeText(this, "This is onDestroy", Toast.LENGTH_SHORT).show()
+        return password.length >= 3
     }
 }

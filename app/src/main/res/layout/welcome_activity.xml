@@ -20,19 +20,36 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
 
         <TextView
-            android:id="@+id/pushUp"
-            android:layout_width="wrap_content"
+            android:id="@+id/pushUpText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/PushUp"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:text="Stored Push Up Value"
+            android:textSize="16sp"
             app:layout_constraintTop_toTopOf="@id/pushUpIcon"
+            app:layout_constraintBottom_toBottomOf="@id/pushUpIcon"
             app:layout_constraintStart_toEndOf="@id/pushUpIcon"
-            android:layout_marginStart="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp" />
+
+
+        <EditText
+            android:id="@+id/editPushUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter push up value"
+            app:layout_constraintTop_toBottomOf="@id/pushUpIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
 
         <ImageView
@@ -40,22 +57,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_food"
-            app:layout_constraintTop_toBottomOf="@id/pushUpIcon"
+            app:layout_constraintTop_toBottomOf="@id/editPushUp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="12dp"
-            android:layout_marginStart="8dp" />
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
 
         <TextView
             android:id="@+id/foodText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/food"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:text="Stored Food Value"
+            android:textSize="16sp"
             app:layout_constraintTop_toTopOf="@id/food"
+            app:layout_constraintBottom_toBottomOf="@id/food"
             app:layout_constraintStart_toEndOf="@id/food"
-            android:layout_marginStart="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp" />
+
+
+        <EditText
+            android:id="@+id/editFood"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter food value"
+            app:layout_constraintTop_toBottomOf="@id/food"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
 
         <ImageView
@@ -63,21 +97,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_nojerk"
-            app:layout_constraintTop_toBottomOf="@id/food"
+            app:layout_constraintTop_toBottomOf="@id/editFood"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true" />
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/noJerkText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/noJerk"
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:text="Stored No Jerk Value"
+            android:textSize="16sp"
             app:layout_constraintTop_toTopOf="@id/noJerk"
+            app:layout_constraintBottom_toBottomOf="@id/noJerk"
             app:layout_constraintStart_toEndOf="@id/noJerk"
-            android:layout_marginStart="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp" />
+
+
+        <EditText
+            android:id="@+id/editNoJerk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Enter no jerk value"
+            app:layout_constraintTop_toBottomOf="@id/noJerk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
 
         <Button
@@ -86,7 +138,7 @@
             android:layout_height="wrap_content"
             android:text="@string/btn_start"
             android:padding="15dp"
-            app:layout_constraintTop_toBottomOf="@id/noJerk"
+            app:layout_constraintTop_toBottomOf="@id/editNoJerk"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp"

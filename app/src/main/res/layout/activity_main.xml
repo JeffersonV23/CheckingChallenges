@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/ic_gym"
-    tools:context=".Login.MainActivity">
+    tools:context=".login.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"

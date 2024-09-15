@@ -1,4 +1,4 @@
-package com.example.checkingchallenges.data.App
+package com.example.checkingchallenges.data.app
 
 import android.content.Context
 import androidx.room.Room
@@ -13,9 +13,12 @@ object DatabaseProvider {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "my_data_base"
-            ).build()
+            ).fallbackToDestructiveMigration()
+                .build()
             database = instance
             instance
+
+
         }
     }
 }

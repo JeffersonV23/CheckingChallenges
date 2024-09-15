@@ -13,7 +13,7 @@
         android:theme="@style/Theme.CheckingChallenges"
         tools:targetApi="31">
         <activity
-            android:name=".Login.LoginUser"
+            android:name=".login.LoginUser"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.CheckingChallenges">
@@ -23,10 +23,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.DatePickerFragment" />
-        <activity android:name=".Login.WelcomeActivity.WelcomeActivity"/>
-        <activity android:name=".Login.MainActivity" />
-        <activity android:name=".Login.Register.Register"/>
+        <activity android:name=".login.DatePickerFragment" />
+        <activity android:name=".login.welcomeActivity.WelcomeActivity"/>
+        <activity android:name=".login.MainActivity" />
+        <activity android:name=".login.register.Register"/>
+        <activity android:name=".login.welcomeActivity.DateActivity"/>
+
 
 
     </application>

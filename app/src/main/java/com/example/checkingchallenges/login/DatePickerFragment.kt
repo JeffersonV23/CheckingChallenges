@@ -1,4 +1,4 @@
-package com.example.checkingchallenges.Login
+package com.example.checkingchallenges.login
 
 import android.app.DatePickerDialog
 import android.app.Dialog
